@@ -12,7 +12,9 @@ The Qwiic Sound Trigger is based on the VM1010 from Vesper Technologies and the 
 
 The VM1010 is a clever little device which can be placed into a very low power "Wake On Sound" mode. When it detects a sound,
 it wakes up and pulls its TRIG (D<sub>OUT</sub>) pin high. The VM1010 can then be placed into "Normal" mode by pulling the
-MODE pin low; it then functions as a regular analog microphone. The microphone signal is available on the AUDIO (V<sub>OUT</sub>) pin.
+MODE pin low; it then functions as a regular microphone. The analog microphone signal is available on the AUDIO (V<sub>OUT</sub>) pin.
+All of this happens really quickly, within 50 _microseconds_ (_much_ faster than with a capacitive MEMS microphone), so you don't miss
+the start of the audio signal.
 
 The noise threshold required to wake the VM1010 can be programmed via the resistance between pins GA1 and GA2. By default, the 20K
 resistor on the breakout sets the noise threshold to close to the minimum (most sensitive) setting. You can increase the threshold
