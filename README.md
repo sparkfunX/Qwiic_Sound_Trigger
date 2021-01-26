@@ -21,10 +21,10 @@ resistor on the breakout sets the noise threshold to close to the minimum (most 
 to maximum (least sensitive) by cutting the THRESH jumper. You can set it mid-way by adding your own resistor between breakout pins GA1 and GA2.
 
 If you are using the VM1010 purely as a sound trigger, you need to reset it after each event by: pushing the MODE button;
-pulling the MODE breakout pin low; or using the Qwiic bus to instruct the PCA9536 to pull the MODE signal low.
+pulling the MODE breakout pin low; or using the Qwiic bus to instruct the PCA9536 to pull the MODE signal low (the VM1010 MODE signal is connected to GPIO0).
 
 You can use the TRIG (D<sub>OUT</sub>) breakout pin to generate an interrupt on your microcontroller. Or you can read (poll) its state via
-the PCA9536.
+the PCA9536 (the TRIG (D<sub>OUT</sub>) signal is connected to GPIO1).
 
 There are two LEDs: one to indicate if the breakout is powered; and a second to show when a sound trigger has taken place. You can disable
 either or both LEDs by cutting the LED jumpers on the back of the breakout.
@@ -39,7 +39,5 @@ As usual, the breakout includes I<sup>2</sup>C pull-up resistors. You can disabl
 ## Library
 
 - **[SparkFun PCA9536 Arduino Library](https://github.com/sparkfun/SparkFun_PCA9536_Arduino_Library)** - Library for the TI PCA9536 4-Bit GPIO Expander
-
-The VM1010 MODE signal is connected to GPIO0. The TRIG (D<sub>OUT</sub>) signal is connected to GPIO1.
 
 **_Your friends at SparkFun_**
