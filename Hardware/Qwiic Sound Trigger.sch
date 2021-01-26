@@ -109,15 +109,40 @@
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="130" name="SMDSTROOK" color="7" fill="1" visible="no" active="no"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="133" name="bottom_silk" color="7" fill="1" visible="no" active="no"/>
+<layer number="134" name="silk_top" color="7" fill="1" visible="no" active="no"/>
+<layer number="135" name="silk_bottom" color="7" fill="1" visible="no" active="no"/>
+<layer number="136" name="silktop" color="7" fill="1" visible="no" active="no"/>
+<layer number="137" name="silkbottom" color="7" fill="1" visible="no" active="no"/>
+<layer number="138" name="EEE" color="7" fill="1" visible="no" active="no"/>
+<layer number="139" name="_tKeepout" color="7" fill="1" visible="no" active="no"/>
+<layer number="140" name="mbKeepout" color="7" fill="1" visible="no" active="no"/>
+<layer number="141" name="ASSEMBLY_TOP" color="7" fill="1" visible="no" active="no"/>
+<layer number="142" name="mbRestrict" color="7" fill="1" visible="no" active="no"/>
+<layer number="143" name="PLACE_BOUND_TOP" color="7" fill="1" visible="no" active="no"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="145" name="DrillLegend_01-16" color="7" fill="1" visible="no" active="no"/>
+<layer number="146" name="DrillLegend_01-20" color="7" fill="1" visible="no" active="no"/>
+<layer number="147" name="PIN_NUMBER" color="7" fill="1" visible="no" active="no"/>
+<layer number="148" name="DrillLegend_01-20" color="7" fill="1" visible="no" active="no"/>
+<layer number="149" name="DrillLegend_02-15" color="7" fill="1" visible="no" active="no"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="153" name="FabDoc1" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="154" name="FabDoc2" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="155" name="FabDoc3" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="166" name="AntennaArea" color="7" fill="1" visible="no" active="no"/>
+<layer number="168" name="4mmHeightArea" color="7" fill="1" visible="no" active="no"/>
+<layer number="191" name="mNets" color="7" fill="1" visible="no" active="no"/>
+<layer number="192" name="mBusses" color="7" fill="1" visible="no" active="no"/>
+<layer number="193" name="mPins" color="7" fill="1" visible="no" active="no"/>
+<layer number="194" name="mSymbols" color="7" fill="1" visible="no" active="no"/>
+<layer number="195" name="mNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="196" name="mValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="yes" active="yes"/>
@@ -3003,6 +3028,8 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="2.54" y="27.94" size="1.9304" layer="94">Attribution Share-Alike 4.0 License</text>
 <text x="2.54" y="24.13" size="1.9304" layer="94"> https://creativecommons.org/licenses/by-sa/4.0/</text>
 <text x="1.27" y="11.43" size="2.54" layer="94">Design by:</text>
+<text x="23.114" y="11.176" size="2.7432" layer="94" font="vector">&gt;DESIGNER</text>
+<text x="88.9" y="6.604" size="2.7432" layer="94" font="vector">&gt;REV</text>
 </symbol>
 <symbol name="OSHW-LOGO">
 <description>&lt;h3&gt;Open-Source Hardware (OSHW) Logo&lt;/h3&gt;
@@ -6593,7 +6620,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <devices>
 <device name="" package="CREATIVE_COMMONS">
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="DESIGNER" value="" constant="no"/>
+<attribute name="REV" value="" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="NO_PACKAGE" package="DUMMY">
@@ -6644,6 +6674,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </technologies>
 </device>
 <device name="MINI" package="OSHW-LOGO-MINI">
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="NO_SILK" package="DUMMY">
 <technologies>
 <technology name=""/>
 </technologies>
@@ -7119,10 +7154,20 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="0.15875" y1="0" x2="-0.15875" y2="0.3175" width="0.127" layer="51"/>
 <wire x1="0.15875" y1="0" x2="-0.15875" y2="-0.3175" width="0.127" layer="51"/>
 </package>
+<package name="LED-1206-HIDDENSILK">
+<wire x1="0.6474" y1="0.6825" x2="0.6474" y2="-0.6825" width="0.2032" layer="21"/>
+<smd name="A" x="-1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
+<smd name="C" x="1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
+<text x="0" y="0.9525" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.9525" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<wire x1="0.65375" y1="0.6825" x2="0.65375" y2="-0.6825" width="0.2032" layer="51"/>
+<wire x1="0.635" y1="0" x2="0.15875" y2="0.47625" width="0.2032" layer="51"/>
+<wire x1="0.635" y1="0" x2="0.15875" y2="-0.47625" width="0.2032" layer="51"/>
+</package>
 <package name="LED-1206">
 <description>&lt;h3&gt;LED 1206 SMT&lt;/h3&gt;
 
-1206, surface mount.
+1206, surface mount. 
 
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count: 2&lt;/li&gt;
@@ -7132,16 +7177,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 &lt;p&gt;Example device(s):
 &lt;ul&gt;&lt;li&gt;LED&lt;/li&gt;&lt;/ul&gt;</description>
 <wire x1="2.4" y1="0.6825" x2="2.4" y2="-0.6825" width="0.2032" layer="21"/>
-<smd name="A" x="-1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
-<smd name="C" x="1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
-<text x="0" y="0.9525" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
-<text x="0" y="-0.9525" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
-<wire x1="0.65375" y1="0.6825" x2="0.65375" y2="-0.6825" width="0.2032" layer="51"/>
-<wire x1="0.635" y1="0" x2="0.15875" y2="0.47625" width="0.2032" layer="51"/>
-<wire x1="0.635" y1="0" x2="0.15875" y2="-0.47625" width="0.2032" layer="51"/>
-</package>
-<package name="LED-1206-HIDDENSILK">
-<wire x1="0.6474" y1="0.6825" x2="0.6474" y2="-0.6825" width="0.2032" layer="21"/>
 <smd name="A" x="-1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
 <smd name="C" x="1.5" y="0" dx="1.2" dy="1.4" layer="1"/>
 <text x="0" y="0.9525" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
@@ -7362,58 +7397,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="-1.27" y="1.143" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="-1.27" y="-1.778" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
-<package name="SNAP-FEMALE">
-<description>&lt;h3&gt;Sew-On Fabric Snap - Female&lt;/h3&gt;
-Equivalent to size #1/0 snap.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count: 1&lt;/li&gt;
-&lt;li&gt;Area:8mm&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<pad name="1" x="0" y="0" drill="2.921" diameter="4.572"/>
-<polygon width="0.254" layer="1">
-<vertex x="-4.0005" y="0" curve="-89.997136"/>
-<vertex x="0" y="4.0005" curve="-90.002865"/>
-<vertex x="4.0005" y="0" curve="-89.997136"/>
-<vertex x="0" y="-4.0005" curve="-89.997136"/>
-</polygon>
-<polygon width="0.3556" layer="29">
-<vertex x="-4.0005" y="0" curve="-90.002865"/>
-<vertex x="0" y="4.0005" curve="-90.002865"/>
-<vertex x="4.0005" y="0" curve="-89.997136"/>
-<vertex x="0" y="-4.0005" curve="-89.997136"/>
-</polygon>
-<polygon width="0.3556" layer="31">
-<vertex x="-4.0005" y="0" curve="-89.997136"/>
-<vertex x="0" y="4.0005" curve="-90.002865"/>
-<vertex x="4.0005" y="0" curve="-89.997136"/>
-<vertex x="0" y="-4.0005" curve="-89.997136"/>
-</polygon>
-<polygon width="0.3556" layer="41">
-<vertex x="-4.0005" y="0" curve="-89.997136"/>
-<vertex x="0" y="4.0005" curve="-90.002865"/>
-<vertex x="4.0005" y="0" curve="-89.997136"/>
-<vertex x="0" y="-4.0005" curve="-89.997136"/>
-</polygon>
-<text x="-1.27" y="4.318" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
-<text x="-1.27" y="-4.953" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
-</package>
-<package name="SNAP-MALE">
-<description>&lt;h3&gt;Sew-On Fabric Snap - Male&lt;/h3&gt;
-Equivalent to size #1/0 snap.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count: 1&lt;/li&gt;
-&lt;li&gt;Area:8mm&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<smd name="2" x="0" y="0" dx="7.62" dy="7.62" layer="1" roundness="100"/>
-<text x="-1.524" y="4.064" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
-<text x="-1.651" y="-4.826" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
-</package>
 <package name="SPRING-CONNECTOR">
 <description>&lt;h3&gt;Spring Connector&lt;/h3&gt;
 &lt;p&gt;Specifications:
@@ -7456,26 +7439,6 @@ Equivalent to size #1/0 snap.
 <text x="-1.27" y="1.143" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="-1.27" y="-1.778" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 <rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
-</package>
-<package name="SMTSO-256-ET-0.165DIA">
-<description>&lt;h3&gt;SMTSO-256-ET Flush Mount Nut&lt;/h3&gt;
-.165 drill
-&lt;br&gt;
-Fits 4-40 Screws.
-&lt;p&gt;Specifications:
-&lt;ul&gt;&lt;li&gt;Pin count: 1&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;
-&lt;p&gt;Example device(s):
-&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
-&lt;/ul&gt;&lt;/p&gt;</description>
-<circle x="0" y="0" radius="1.016" width="0.127" layer="51"/>
-<wire x1="-1.016" y1="2.286" x2="-2.286" y2="1.016" width="1.016" layer="31" curve="42.075022"/>
-<wire x1="2.286" y1="1.016" x2="1.016" y2="2.286" width="1.016" layer="31" curve="42.075022"/>
-<wire x1="1.016" y1="-2.286" x2="2.286" y2="-1.016" width="1.016" layer="31" curve="42.075022"/>
-<wire x1="-2.286" y1="-1.016" x2="-1.016" y2="-2.286" width="1.016" layer="31" curve="42.075022"/>
-<pad name="P$1" x="0" y="0" drill="4.191" diameter="6.1976"/>
-<text x="-1.397" y="3.302" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
-<text x="-1.524" y="-3.937" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
 <package name="1X01_SMALL">
 <description>&lt;h3&gt;Small PTH Hole&lt;/h3&gt;
@@ -7595,6 +7558,78 @@ Fits 4-40 Screws.
 <vertex x="12.7" y="3.81"/>
 </polygon>
 <text x="2.667" y="0.254" size="0.635" layer="51" font="vector" ratio="15">Bottom Parts Only</text>
+</package>
+<package name="SNAP-FEMALE">
+<description>&lt;h3&gt;Sew-On Fabric Snap - Female&lt;/h3&gt;
+Equivalent to size #1/0 snap. 
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 1&lt;/li&gt;
+&lt;li&gt;Area:8mm&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<pad name="1" x="0" y="0" drill="2.921" diameter="4.572"/>
+<polygon width="0.254" layer="1">
+<vertex x="-4.0005" y="0" curve="-89.997136"/>
+<vertex x="0" y="4.0005" curve="-90.002865"/>
+<vertex x="4.0005" y="0" curve="-89.997136"/>
+<vertex x="0" y="-4.0005" curve="-89.997136"/>
+</polygon>
+<polygon width="0.3556" layer="29">
+<vertex x="-4.0005" y="0" curve="-90.002865"/>
+<vertex x="0" y="4.0005" curve="-90.002865"/>
+<vertex x="4.0005" y="0" curve="-89.997136"/>
+<vertex x="0" y="-4.0005" curve="-89.997136"/>
+</polygon>
+<polygon width="0.3556" layer="31">
+<vertex x="-4.0005" y="0" curve="-89.997136"/>
+<vertex x="0" y="4.0005" curve="-90.002865"/>
+<vertex x="4.0005" y="0" curve="-89.997136"/>
+<vertex x="0" y="-4.0005" curve="-89.997136"/>
+</polygon>
+<polygon width="0.3556" layer="41">
+<vertex x="-4.0005" y="0" curve="-89.997136"/>
+<vertex x="0" y="4.0005" curve="-90.002865"/>
+<vertex x="4.0005" y="0" curve="-89.997136"/>
+<vertex x="0" y="-4.0005" curve="-89.997136"/>
+</polygon>
+<text x="-1.27" y="4.318" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
+<text x="-1.27" y="-4.953" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
+</package>
+<package name="SNAP-MALE">
+<description>&lt;h3&gt;Sew-On Fabric Snap - Male&lt;/h3&gt;
+Equivalent to size #1/0 snap. 
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 1&lt;/li&gt;
+&lt;li&gt;Area:8mm&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<smd name="2" x="0" y="0" dx="7.62" dy="7.62" layer="1" roundness="100"/>
+<text x="-1.524" y="4.064" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
+<text x="-1.651" y="-4.826" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
+</package>
+<package name="SMTSO-256-ET-0.165DIA">
+<description>&lt;h3&gt;SMTSO-256-ET Flush Mount Nut&lt;/h3&gt;
+.165 drill
+&lt;br&gt;
+Fits 4-40 Screws. 
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count: 1&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<circle x="0" y="0" radius="1.016" width="0.127" layer="51"/>
+<wire x1="-1.016" y1="2.286" x2="-2.286" y2="1.016" width="1.016" layer="31" curve="42.075022"/>
+<wire x1="2.286" y1="1.016" x2="1.016" y2="2.286" width="1.016" layer="31" curve="42.075022"/>
+<wire x1="1.016" y1="-2.286" x2="2.286" y2="-1.016" width="1.016" layer="31" curve="42.075022"/>
+<wire x1="-2.286" y1="-1.016" x2="-1.016" y2="-2.286" width="1.016" layer="31" curve="42.075022"/>
+<pad name="P$1" x="0" y="0" drill="4.191" diameter="6.1976"/>
+<text x="-1.397" y="3.302" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
+<text x="-1.524" y="-3.937" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
 </packages>
 <symbols>
@@ -7870,32 +7905,33 @@ MSOP&lt;br&gt;
 <smd name="6" x="2.25" y="-0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
 <smd name="7" x="2.25" y="0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
 <smd name="8" x="2.25" y="0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<rectangle x1="-2.2" y1="0.525" x2="-1.8" y2="1.425" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-0.125" x2="-1.8" y2="0.775" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-0.775" x2="-1.8" y2="0.125" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-1.425" x2="-1.8" y2="-0.525" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-1.425" x2="2.2" y2="-0.525" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-0.775" x2="2.2" y2="0.125" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-0.125" x2="2.2" y2="0.775" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="0.525" x2="2.2" y2="1.425" layer="51" rot="R270"/>
 <circle x="-1.7574" y="1.6256" radius="0.091578125" width="0.2032" layer="21"/>
 <text x="-1.143" y="0.762" size="0.508" layer="25">&gt;Name</text>
 <text x="-1.27" y="-1.27" size="0.508" layer="27">&gt;Value</text>
+<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<rectangle x1="-2.45" y1="0.8175" x2="-1.9" y2="1.1325" layer="51"/>
+<rectangle x1="-2.45" y1="0.1675" x2="-1.9" y2="0.4825" layer="51"/>
+<rectangle x1="-2.45" y1="-0.4825" x2="-1.9" y2="-0.1675" layer="51"/>
+<rectangle x1="-2.45" y1="-1.1325" x2="-1.9" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-1.1325" x2="2.45" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-0.4825" x2="2.45" y2="-0.1675" layer="51"/>
+<rectangle x1="1.9" y1="0.1675" x2="2.45" y2="0.4825" layer="51"/>
+<rectangle x1="1.9" y1="0.8175" x2="2.45" y2="1.1325" layer="51"/>
 </package>
 <package name="VM1010">
 <description>Vesper Technologies VM1010</description>
-<smd name="1" x="1.35" y="0.965" dx="0.4596" dy="0.4596" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="1"/>
+<smd name="1" x="1.35" y="0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
 <hole x="-0.75" y="0" drill="0.75"/>
 <circle x="-0.75" y="0" radius="0.63" width="0.3" layer="1"/>
 <circle x="1.35" y="0.965" radius="0.1" width="0.55" layer="29"/>
 <circle x="1.35" y="0.965" radius="0.1" width="0.4" layer="31"/>
-<smd name="7" x="1.35" y="0" dx="0.4243" dy="0.4243" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="0" radius="0.1" width="0.4" layer="1"/>
+<smd name="7" x="1.35" y="0" dx="0.6" dy="0.6" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="1.35" y="0" radius="0.1" width="0.5" layer="29"/>
 <circle x="1.35" y="0" radius="0.1" width="0.35" layer="31"/>
-<smd name="6" x="1.35" y="-0.965" dx="0.4596" dy="0.4596" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="1"/>
+<smd name="6" x="1.35" y="-0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="1.35" y="-0.965" radius="0.1" width="0.55" layer="29"/>
 <circle x="1.35" y="-0.965" radius="0.1" width="0.4" layer="31"/>
 <wire x1="-1.88" y1="-1.475" x2="1.88" y2="-1.475" width="0.2" layer="21"/>
@@ -7907,8 +7943,7 @@ MSOP&lt;br&gt;
 <wire x1="-1.88" y1="1.475" x2="-1.88" y2="-1.475" width="0.15" layer="51"/>
 <wire x1="1.88" y1="-1.475" x2="1.88" y2="1.475" width="0.15" layer="51"/>
 <circle x="2.2" y="1.76" radius="0.1" width="0.2" layer="21"/>
-<smd name="2" x="0.25" y="1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="2" x="0.25" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="0.25" y="1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="0.25" y="1.015" radius="0.1" width="0.21" layer="31"/>
 <circle x="-0.75" y="0" radius="0.415" width="0.83" layer="29"/>
@@ -7917,20 +7952,25 @@ MSOP&lt;br&gt;
 <wire x1="-0.1" y1="-0.175" x2="-0.575" y2="-0.65" width="0.2" layer="31" curve="-59.863024"/>
 <wire x1="-1.4" y1="-0.175" x2="-0.925" y2="-0.65" width="0.2" layer="31" curve="59.863024"/>
 <wire x1="-0.1" y1="0.175" x2="-0.575" y2="0.65" width="0.2" layer="31" curve="59.863024"/>
-<smd name="3" x="-1.39" y="1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="3" x="-1.39" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="-1.39" y="1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="-1.39" y="1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="4" x="-1.39" y="-1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="4" x="-1.39" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="-1.39" y="-1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="-1.39" y="-1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="5" x="0.25" y="-1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="5" x="0.25" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="0.25" y="-1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="0.25" y="-1.015" radius="0.1" width="0.21" layer="31"/>
 <text x="-1.75" y="2" size="0.8128" layer="25">&gt;NAME</text>
 <text x="-1.75" y="-2.5" size="0.8128" layer="27">&gt;VALUE</text>
+<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="1.35" y="0" radius="0.1" width="0.4" layer="51"/>
+<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-0.75" y="0" radius="0.63" width="0.3" layer="51"/>
 </package>
 </packages>
 <symbols>

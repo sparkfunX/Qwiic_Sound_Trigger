@@ -109,15 +109,40 @@
 <layer number="127" name="_tValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="129" name="Mask" color="7" fill="1" visible="no" active="no"/>
+<layer number="130" name="SMDSTROOK" color="7" fill="1" visible="no" active="no"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="no"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="no"/>
+<layer number="133" name="bottom_silk" color="7" fill="1" visible="no" active="no"/>
+<layer number="134" name="silk_top" color="7" fill="1" visible="no" active="no"/>
+<layer number="135" name="silk_bottom" color="7" fill="1" visible="no" active="no"/>
+<layer number="136" name="silktop" color="7" fill="1" visible="no" active="no"/>
+<layer number="137" name="silkbottom" color="7" fill="1" visible="no" active="no"/>
+<layer number="138" name="EEE" color="7" fill="1" visible="no" active="no"/>
+<layer number="139" name="_tKeepout" color="7" fill="1" visible="no" active="no"/>
+<layer number="140" name="mbKeepout" color="7" fill="1" visible="no" active="no"/>
+<layer number="141" name="ASSEMBLY_TOP" color="7" fill="1" visible="no" active="no"/>
+<layer number="142" name="mbRestrict" color="7" fill="1" visible="no" active="no"/>
+<layer number="143" name="PLACE_BOUND_TOP" color="7" fill="1" visible="no" active="no"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="no" active="no"/>
+<layer number="145" name="DrillLegend_01-16" color="7" fill="1" visible="no" active="no"/>
+<layer number="146" name="DrillLegend_01-20" color="7" fill="1" visible="no" active="no"/>
+<layer number="147" name="PIN_NUMBER" color="7" fill="1" visible="no" active="no"/>
+<layer number="148" name="DrillLegend_01-20" color="7" fill="1" visible="no" active="no"/>
+<layer number="149" name="DrillLegend_02-15" color="7" fill="1" visible="no" active="no"/>
 <layer number="150" name="Notes" color="7" fill="1" visible="no" active="no"/>
 <layer number="151" name="HeatSink" color="7" fill="1" visible="no" active="no"/>
 <layer number="152" name="_bDocu" color="7" fill="1" visible="no" active="no"/>
 <layer number="153" name="FabDoc1" color="7" fill="1" visible="no" active="no"/>
 <layer number="154" name="FabDoc2" color="7" fill="1" visible="no" active="no"/>
 <layer number="155" name="FabDoc3" color="7" fill="1" visible="no" active="no"/>
+<layer number="166" name="AntennaArea" color="7" fill="1" visible="no" active="no"/>
+<layer number="168" name="4mmHeightArea" color="7" fill="1" visible="no" active="no"/>
+<layer number="191" name="mNets" color="7" fill="1" visible="no" active="no"/>
+<layer number="192" name="mBusses" color="7" fill="1" visible="no" active="no"/>
+<layer number="193" name="mPins" color="7" fill="1" visible="no" active="no"/>
+<layer number="194" name="mSymbols" color="7" fill="1" visible="no" active="no"/>
+<layer number="195" name="mNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="196" name="mValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="199" name="Contour" color="7" fill="1" visible="no" active="no"/>
 <layer number="200" name="200bmp" color="1" fill="10" visible="no" active="no"/>
 <layer number="201" name="201bmp" color="2" fill="10" visible="no" active="no"/>
@@ -176,7 +201,7 @@ or expose the acoustic port to harsh chemicals.</text>
 <text x="36.83" y="38.1" size="1.778" layer="51" font="vector" ratio="15" align="top-left">2-Layer board
 1.6mm thickness
 HASL finish</text>
-<text x="82.55" y="-10.16" size="1.778" layer="51" font="vector" ratio="15">Paul Clark</text>
+<text x="85.09" y="-10.16" size="1.778" layer="51" font="vector" ratio="15">Paul Clark</text>
 <wire x1="11.811" y1="17.272" x2="13.589" y2="17.272" width="0.3048" layer="22" curve="-180"/>
 <wire x1="13.589" y1="17.272" x2="11.811" y2="17.272" width="0.3048" layer="22" curve="-180"/>
 <text x="-2.54" y="-3.81" size="1.778" layer="47" ratio="15">Dimensions in inches</text>
@@ -1117,32 +1142,33 @@ MSOP&lt;br&gt;
 <smd name="6" x="2.25" y="-0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
 <smd name="7" x="2.25" y="0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
 <smd name="8" x="2.25" y="0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<rectangle x1="-2.2" y1="0.525" x2="-1.8" y2="1.425" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-0.125" x2="-1.8" y2="0.775" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-0.775" x2="-1.8" y2="0.125" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-1.425" x2="-1.8" y2="-0.525" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-1.425" x2="2.2" y2="-0.525" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-0.775" x2="2.2" y2="0.125" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-0.125" x2="2.2" y2="0.775" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="0.525" x2="2.2" y2="1.425" layer="51" rot="R270"/>
 <circle x="-1.7574" y="1.6256" radius="0.091578125" width="0.2032" layer="21"/>
 <text x="-1.143" y="0.762" size="0.508" layer="25">&gt;Name</text>
 <text x="-1.27" y="-1.27" size="0.508" layer="27">&gt;Value</text>
+<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<rectangle x1="-2.45" y1="0.8175" x2="-1.9" y2="1.1325" layer="51"/>
+<rectangle x1="-2.45" y1="0.1675" x2="-1.9" y2="0.4825" layer="51"/>
+<rectangle x1="-2.45" y1="-0.4825" x2="-1.9" y2="-0.1675" layer="51"/>
+<rectangle x1="-2.45" y1="-1.1325" x2="-1.9" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-1.1325" x2="2.45" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-0.4825" x2="2.45" y2="-0.1675" layer="51"/>
+<rectangle x1="1.9" y1="0.1675" x2="2.45" y2="0.4825" layer="51"/>
+<rectangle x1="1.9" y1="0.8175" x2="2.45" y2="1.1325" layer="51"/>
 </package>
 <package name="VM1010">
 <description>Vesper Technologies VM1010</description>
-<smd name="1" x="1.35" y="0.965" dx="0.4596" dy="0.4596" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="1"/>
+<smd name="1" x="1.35" y="0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
 <hole x="-0.75" y="0" drill="0.75"/>
 <circle x="-0.75" y="0" radius="0.63" width="0.3" layer="1"/>
 <circle x="1.35" y="0.965" radius="0.1" width="0.55" layer="29"/>
 <circle x="1.35" y="0.965" radius="0.1" width="0.4" layer="31"/>
-<smd name="7" x="1.35" y="0" dx="0.4243" dy="0.4243" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="0" radius="0.1" width="0.4" layer="1"/>
+<smd name="7" x="1.35" y="0" dx="0.6" dy="0.6" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="1.35" y="0" radius="0.1" width="0.5" layer="29"/>
 <circle x="1.35" y="0" radius="0.1" width="0.35" layer="31"/>
-<smd name="6" x="1.35" y="-0.965" dx="0.4596" dy="0.4596" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="1"/>
+<smd name="6" x="1.35" y="-0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="1.35" y="-0.965" radius="0.1" width="0.55" layer="29"/>
 <circle x="1.35" y="-0.965" radius="0.1" width="0.4" layer="31"/>
 <wire x1="-1.88" y1="-1.475" x2="1.88" y2="-1.475" width="0.2" layer="21"/>
@@ -1154,8 +1180,7 @@ MSOP&lt;br&gt;
 <wire x1="-1.88" y1="1.475" x2="-1.88" y2="-1.475" width="0.15" layer="51"/>
 <wire x1="1.88" y1="-1.475" x2="1.88" y2="1.475" width="0.15" layer="51"/>
 <circle x="2.2" y="1.76" radius="0.1" width="0.2" layer="21"/>
-<smd name="2" x="0.25" y="1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="2" x="0.25" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="0.25" y="1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="0.25" y="1.015" radius="0.1" width="0.21" layer="31"/>
 <circle x="-0.75" y="0" radius="0.415" width="0.83" layer="29"/>
@@ -1164,20 +1189,25 @@ MSOP&lt;br&gt;
 <wire x1="-0.1" y1="-0.175" x2="-0.575" y2="-0.65" width="0.2" layer="31" curve="-59.863024"/>
 <wire x1="-1.4" y1="-0.175" x2="-0.925" y2="-0.65" width="0.2" layer="31" curve="59.863024"/>
 <wire x1="-0.1" y1="0.175" x2="-0.575" y2="0.65" width="0.2" layer="31" curve="59.863024"/>
-<smd name="3" x="-1.39" y="1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="3" x="-1.39" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="-1.39" y="1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="-1.39" y="1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="4" x="-1.39" y="-1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="4" x="-1.39" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="-1.39" y="-1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="-1.39" y="-1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="5" x="0.25" y="-1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="5" x="0.25" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="0.25" y="-1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="0.25" y="-1.015" radius="0.1" width="0.21" layer="31"/>
 <text x="-1.75" y="2" size="0.8128" layer="25">&gt;NAME</text>
 <text x="-1.75" y="-2.5" size="0.8128" layer="27">&gt;VALUE</text>
+<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="1.35" y="0" radius="0.1" width="0.4" layer="51"/>
+<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-0.75" y="0" radius="0.63" width="0.3" layer="51"/>
 </package>
 </packages>
 </library>
@@ -5714,7 +5744,10 @@ These are the free and generally easy to produce 2-layer PCB design rules. You c
 <element name="J2" library="SparkFun-Connectors" package="1X04_NO_SILK" value="PTH" x="8.89" y="1.27" smashed="yes" rot="MR180">
 <attribute name="NAME" x="17.78" y="2.032" size="0.6096" layer="26" font="vector" ratio="20" rot="MR180"/>
 </element>
-<element name="FRAME1" library="SparkFun-Aesthetics" package="CREATIVE_COMMONS" value="FRAME-LETTER" x="52.07" y="-10.16" smashed="yes"/>
+<element name="FRAME1" library="SparkFun-Aesthetics" package="CREATIVE_COMMONS" value="FRAME-LETTER" x="54.61" y="-10.16" smashed="yes">
+<attribute name="DESIGNER" value="" x="54.61" y="-10.16" size="1.778" layer="27" display="off"/>
+<attribute name="REV" value="" x="54.61" y="-10.16" size="1.778" layer="27" display="off"/>
+</element>
 <element name="U$2" library="SparkX" package="SPARKX-MEDIUM" value="SPARKX-LOGO4" x="12.7" y="11.811" smashed="yes" rot="MR0"/>
 <element name="J3" library="SparkFun-Connectors" package="JST04_1MM_RA" value="Qwiic Right Angle" x="20.32" y="10.16" smashed="yes" rot="R90">
 <attribute name="NAME" x="22.733" y="8.636" size="0.6096" layer="25" font="vector" ratio="20" rot="R90"/>
@@ -6242,15 +6275,7 @@ These are the free and generally easy to produce 2-layer PCB design rules. You c
 <mfgpreviewcolor name="substratecolor" color="0xFF786E46"/>
 </mfgpreviewcolors>
 <errors>
-<approved hash="19,1,43285ca3baa7a52c"/>
-<approved hash="19,1,2822281d232d2312"/>
-<approved hash="19,1,0f580093a297ad5c"/>
-<approved hash="19,1,0c220c1503250312"/>
-<approved hash="19,1,6d0d6de3e4832fd0"/>
-<approved hash="19,1,43584c93aa97a55c"/>
-<approved hash="19,1,ede9ec60186819e1"/>
 <approved hash="19,1,2628f321e0203d0c"/>
-<approved hash="19,1,0f2810a3b2a7ad2c"/>
 <approved hash="19,16,e5eb73fe372246e5"/>
 <approved hash="19,16,167c436634ab85cf"/>
 <approved hash="19,16,69aa1040ba64560e"/>
@@ -6263,16 +6288,7 @@ These are the free and generally easy to produce 2-layer PCB design rules. You c
 <approved hash="4,16,7744fe4dbbd032f4"/>
 <approved hash="4,16,540e63348c78b042"/>
 <approved hash="4,1,3a3866ba884d0932"/>
-<approved hash="19,1,48ac353949d4732d"/>
-<approved hash="19,1,5e4eb04371596e8a"/>
-<approved hash="19,1,a5ad1d9f482739a8"/>
 <approved hash="19,1,6a4e67fd0a6cf8e3"/>
-<approved hash="19,1,ea230006745229f2"/>
-<approved hash="19,1,570825f959a46321"/>
-<approved hash="19,1,f1478d85eac6dbfb"/>
-<approved hash="19,1,442cca7b4caf727d"/>
-<approved hash="19,1,21e88572d468de7b"/>
-<approved hash="19,1,2e309fac3c8b8b7c"/>
 </errors>
 </board>
 </drawing>

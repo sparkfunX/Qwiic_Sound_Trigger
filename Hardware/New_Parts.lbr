@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.05" altunitdist="mm" altunit="mm"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -18,34 +18,34 @@
 <layer number="22" name="bPlace" color="14" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="51" name="tDocu" color="6" fill="1" visible="yes" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
@@ -181,32 +181,33 @@ MSOP&lt;br&gt;
 <smd name="6" x="2.25" y="-0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
 <smd name="7" x="2.25" y="0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
 <smd name="8" x="2.25" y="0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<rectangle x1="-2.2" y1="0.525" x2="-1.8" y2="1.425" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-0.125" x2="-1.8" y2="0.775" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-0.775" x2="-1.8" y2="0.125" layer="51" rot="R270"/>
-<rectangle x1="-2.2" y1="-1.425" x2="-1.8" y2="-0.525" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-1.425" x2="2.2" y2="-0.525" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-0.775" x2="2.2" y2="0.125" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="-0.125" x2="2.2" y2="0.775" layer="51" rot="R270"/>
-<rectangle x1="1.8" y1="0.525" x2="2.2" y2="1.425" layer="51" rot="R270"/>
 <circle x="-1.7574" y="1.6256" radius="0.091578125" width="0.2032" layer="21"/>
 <text x="-1.143" y="0.762" size="0.508" layer="25">&gt;Name</text>
 <text x="-1.27" y="-1.27" size="0.508" layer="27">&gt;Value</text>
+<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<rectangle x1="-2.45" y1="0.8175" x2="-1.9" y2="1.1325" layer="51"/>
+<rectangle x1="-2.45" y1="0.1675" x2="-1.9" y2="0.4825" layer="51"/>
+<rectangle x1="-2.45" y1="-0.4825" x2="-1.9" y2="-0.1675" layer="51"/>
+<rectangle x1="-2.45" y1="-1.1325" x2="-1.9" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-1.1325" x2="2.45" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-0.4825" x2="2.45" y2="-0.1675" layer="51"/>
+<rectangle x1="1.9" y1="0.1675" x2="2.45" y2="0.4825" layer="51"/>
+<rectangle x1="1.9" y1="0.8175" x2="2.45" y2="1.1325" layer="51"/>
 </package>
 <package name="VM1010">
 <description>Vesper Technologies VM1010</description>
-<smd name="1" x="1.35" y="0.965" dx="0.4596" dy="0.4596" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="1"/>
+<smd name="1" x="1.35" y="0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
 <hole x="-0.75" y="0" drill="0.75"/>
 <circle x="-0.75" y="0" radius="0.63" width="0.3" layer="1"/>
 <circle x="1.35" y="0.965" radius="0.1" width="0.55" layer="29"/>
 <circle x="1.35" y="0.965" radius="0.1" width="0.4" layer="31"/>
-<smd name="7" x="1.35" y="0" dx="0.4243" dy="0.4243" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="0" radius="0.1" width="0.4" layer="1"/>
+<smd name="7" x="1.35" y="0" dx="0.6" dy="0.6" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="1.35" y="0" radius="0.1" width="0.5" layer="29"/>
 <circle x="1.35" y="0" radius="0.1" width="0.35" layer="31"/>
-<smd name="6" x="1.35" y="-0.965" dx="0.4596" dy="0.4596" layer="1" stop="no" cream="no"/>
-<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="1"/>
+<smd name="6" x="1.35" y="-0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="1.35" y="-0.965" radius="0.1" width="0.55" layer="29"/>
 <circle x="1.35" y="-0.965" radius="0.1" width="0.4" layer="31"/>
 <wire x1="-1.88" y1="-1.475" x2="1.88" y2="-1.475" width="0.2" layer="21"/>
@@ -218,8 +219,7 @@ MSOP&lt;br&gt;
 <wire x1="-1.88" y1="1.475" x2="-1.88" y2="-1.475" width="0.15" layer="51"/>
 <wire x1="1.88" y1="-1.475" x2="1.88" y2="1.475" width="0.15" layer="51"/>
 <circle x="2.2" y="1.76" radius="0.1" width="0.2" layer="21"/>
-<smd name="2" x="0.25" y="1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="2" x="0.25" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="0.25" y="1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="0.25" y="1.015" radius="0.1" width="0.21" layer="31"/>
 <circle x="-0.75" y="0" radius="0.415" width="0.83" layer="29"/>
@@ -228,20 +228,25 @@ MSOP&lt;br&gt;
 <wire x1="-0.1" y1="-0.175" x2="-0.575" y2="-0.65" width="0.2" layer="31" curve="-59.863024"/>
 <wire x1="-1.4" y1="-0.175" x2="-0.925" y2="-0.65" width="0.2" layer="31" curve="59.863024"/>
 <wire x1="-0.1" y1="0.175" x2="-0.575" y2="0.65" width="0.2" layer="31" curve="59.863024"/>
-<smd name="3" x="-1.39" y="1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="3" x="-1.39" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="-1.39" y="1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="-1.39" y="1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="4" x="-1.39" y="-1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="4" x="-1.39" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="-1.39" y="-1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="-1.39" y="-1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="5" x="0.25" y="-1.015" dx="0.3253" dy="0.3253" layer="1" stop="no" cream="no"/>
-<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="1"/>
+<smd name="5" x="0.25" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
 <circle x="0.25" y="-1.015" radius="0.1" width="0.36" layer="29"/>
 <circle x="0.25" y="-1.015" radius="0.1" width="0.21" layer="31"/>
 <text x="-1.75" y="2" size="0.8128" layer="25">&gt;NAME</text>
 <text x="-1.75" y="-2.5" size="0.8128" layer="27">&gt;VALUE</text>
+<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="1.35" y="0" radius="0.1" width="0.4" layer="51"/>
+<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-0.75" y="0" radius="0.63" width="0.3" layer="51"/>
 </package>
 </packages>
 <symbols>
