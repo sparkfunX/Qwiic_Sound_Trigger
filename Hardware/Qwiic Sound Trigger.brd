@@ -5794,7 +5794,7 @@ These are the free and generally easy to produce 2-layer PCB design rules. You c
 <attribute name="DIGIKEY_PART" value="2022-1001-1-ND" x="12.7" y="16.51" size="1.778" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 <attribute name="MANU_PART" value="VM1010AA" x="12.7" y="16.51" size="1.778" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 <attribute name="NAME" x="12.22" y="15.716" size="0.6096" layer="25" font="vector" ratio="20"/>
-<attribute name="PROD_ID" value="" x="12.7" y="16.51" size="1.778" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
+<attribute name="PROD_ID" value="IC-15768" x="12.7" y="16.51" size="1.778" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 </element>
 <element name="TRIG" library="SparkFun-Connectors" package="1X01_NO_SILK" value="" x="19.05" y="24.13" smashed="yes">
 <attribute name="NAME" x="18.034" y="23.749" size="0.6096" layer="25" font="vector" ratio="20"/>

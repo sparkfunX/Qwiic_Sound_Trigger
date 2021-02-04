@@ -8053,7 +8053,7 @@ MSOP&lt;br&gt;
 <technology name="">
 <attribute name="DIGIKEY_PART" value="2022-1001-1-ND" constant="no"/>
 <attribute name="MANU_PART" value="VM1010AA" constant="no"/>
-<attribute name="PROD_ID" value="" constant="no"/>
+<attribute name="PROD_ID" value="IC-15768" constant="no"/>
 </technology>
 </technologies>
 </device>
