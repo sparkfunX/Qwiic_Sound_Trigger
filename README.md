@@ -32,6 +32,7 @@ either or both LEDs by cutting the LED jumpers on the back of the breakout.
 As usual, the breakout includes I<sup>2</sup>C pull-up resistors. You can disable those if you need to by cutting the I2C jumpers.
 
 ## Repository Contents
+- [**/Examples**](./Examples) - Example sketches (.ino). Run these from the Arduino IDE.
 - [**/Documents**](./Documents) - Datasheets etc. for both the VM1010 and PCA9536
 - [**/Hardware**](./Hardware) - Eagle schematic and PCB design files
 - [**LICENSE.md**](./LICENSE.md) contains the licence information
