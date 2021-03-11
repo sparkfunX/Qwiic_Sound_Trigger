@@ -35,8 +35,11 @@ The [**/Examples**](./Examples) folder contains two example sketches for the Ard
 - Example1 is a very simple example showing how to read the sound trigger TRIG signal via the PCA9536 GPIO1 pin and reset it via the MODE signal and GPIO2
 - Example2 is a more complex example showing how you can capture and log the rising edge of the sound event with _nanosecond_ resolution using a ZED-F9P GNSS receiver
 
+The [**/Utils**](./Utils) folder contains Python tools which can process the UBX TIM_TM2 data logged by Example2 and calculate the location of the sound events.
+
 ## Repository Contents
-- [**/Examples**](./Examples) - Example sketches (.ino). Run these from the Arduino IDE.
+- [**/Examples**](./Examples) - Example sketches (.ino). Run these from the Arduino IDE
+- [**/Utils**](./Utils) - Python tools to process the UBX TIM_TM2 data logged by Example2
 - [**/Documents**](./Documents) - Datasheets etc. for both the VM1010 and PCA9536
 - [**/Hardware**](./Hardware) - Eagle schematic and PCB design files
 - [**LICENSE.md**](./LICENSE.md) contains the licence information
