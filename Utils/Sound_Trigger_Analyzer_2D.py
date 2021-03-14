@@ -269,7 +269,7 @@ maxTimeBC = BC / speed_of_sound # Calculate what the maximum time difference can
 
 CX = (AC**2 - BC**2 + AB**2) / (2 * AB) # Calculate the X coordinate of C
 
-# Substitute into 1: CY = (AC**2 -CX**2)**0.5
+# Substitute into 1: CY = (AC**2 - CX**2)**0.5
 
 CY = (AC**2 - CX**2)**0.5 # Calculate the Y coordinate of C
 if diag: print('CX =',CX,' CY =',CY)
@@ -307,8 +307,8 @@ for timeA in timesA: # Step through each time in file A
                 # 0 = 2.DdiffB.D + DdiffB**2 - AB**2 + 2.AB.SX
                 # 6: SX = (AB**2 - 2.DdiffB.D - DdiffB**2) / 2.AB
 
-                SXb = (AB**2 - DdiffB**2) / (2 * AB) # Calculate the b part of x = a.D + b
                 SXa = (0 - (2 * DdiffB)) / (2 * AB) # Calculate the a part of x = a.D + b
+                SXb = (AB**2 - DdiffB**2) / (2 * AB) # Calculate the b part of x = a.D + b
                 if diag:
                     sign = '+'
                     if (SXb < 0):
@@ -320,31 +320,59 @@ for timeA in timesA: # Step through each time in file A
                 # Multiply the square: SY**2 = D**2 - SXa**2.D**2 - 2.SXa.SXb.D - SXb**2
                 # Simplify: SY**2 = (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
                 # 7: SY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                
+                ya = (1 - SXa**2)
+                yb = 0 - 2*SXa*SXb
+                yc = 0 - SXb**2
+                if diag: print('ya',ya,'yb',yb,'yc',yc)
+                
                 # Substitute 6 and 7 into 5:
                 # (D + DdiffC)**2 = (CX - (SXa.D + SXb))**2 + (CY - (((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5))**2
                 # Multiply the squares:
-                # D**2 + 2.DdiffC.D + DdiffC**2 = CX**2 - 2.CX.SXa.D - 2.CX.SXb + SXa**2.D + 2.SXa.SXb.D + SXb**2 + CY**2 - 2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5 + (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
+                # D**2 + 2.DdiffC.D + DdiffC**2 = CX**2 - 2.CX.SXa.D - 2.CX.SXb - SXa**2.D**2 - 2.SXa.SXb.D - SXb**2 + CY**2 - 2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5 + (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
                 # Simplify and leave the root on the right:
-                # (1 - (1 - SXa**2)).D**2 + (2.DdiffC + 2.CX.SXa - SXa**2).D + DdiffC**2 - CX**2 + 2.CX.SXb - SXb**2 - CY**2 + SXb**2 = -2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
-                # (SXa**2.D**2 + (2.DdiffC + 2.CX.SXa - SXa**2).D + DdiffC**2 - CX**2 + 2.CX.SXb - CY**2) / -2.CY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # (1 + SXa**2 - (1 - SXa**2)).D**2 + (2.DdiffC + 2.CX.SXa + 4.SXa.SXb).D + DdiffC**2 - CX**2 + 2.CX.SXb + SXb**2 - CY**2 + SXb**2 = -2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # 2.SXa**2.D**2 + ((2.DdiffC + 2.CX.SXa + 4.SXa.SXb).D + DdiffC**2 - CX**2 + 2.CX.SXb + 2.SXb**2 - CY**2) / -2.CY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
                 
-                da = SXa**2 / -2*CY
-                db = (2*DdiffC + 2*CX*SXa - SXa**2) / -2*CY
-                dc = (DdiffC**2 - CX**2 + 2*CX*SXb - CY**2) / -2*CY
-                if diag: print('da',da,' db',db,' dc',dc)
+                da = 2 * (SXa**2)
+                db = (2*DdiffC + 2*CX*SXa + 4.SXa.SXb) / (-2*CY)
+                dc = (DdiffC**2 - CX**2 + 2*CX*SXb + SXb**2- CY**2) / (-2*CY)
+                if diag: print('da',da,' db',db,'dc',dc)
 
                 # da.D**2 + db.D + dc = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
                 # Square both sides:
-                # da**2.D**4 + (2.da.db).D**3 + (2.da.dc + db**2).D**2 + (2.db.dc).D + dc**2 = (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
+                # da**2.D**2 + 2.da.db.D + db**2 = (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
                 # Simplify:
-                # da**2.D**4 + (2.da.db).D**3 + (2.da.dc + db**2 - 1 + SXa**2).D**2 + (2.db.dc + 2.SXa.SXb).D + dc**2 + SXb**2 = 0
+                # (da**2 - (1 - SXa**2)).D**2 + (2.da.db + 2.SXa.SXb).D + db**2 + SXb**2 = 0
 
-                qa = da**2
-                qb = 2*da*db
-                qc = 2*da*dc + db**2 - 1 + SXa**2
-                qd = 2*db*dc + 2*SXa*SXb
-                qe = dc**2 + SXb**2
-                if diag: print('qa',qa,' qb',qb,' qc',qc,' qd',qd,' qe',qe)
+                qa = da**2 -1 + SXa**2
+                qb = 2*da*db + 2*SXa*SXb
+                qc = db**2 + SXb**2
+                if diag: print('qa',qa,' qb',qb,' qc',qc)
 
-                # Now we need to put these into a quartic equation solver:
+                # Solve the quadratic equation:
+
+                D1 = (-qb + (qb**2 - 4*qa*qc)**0.5) / 2*qa
+                D2 = (-qb - (qb**2 - 4*qa*qc)**0.5) / 2*qa
+
+                goodD = 0
+                if (D1 >= 0) and (D1 <= AB):
+                    goodD += 1
+                    D = D1
+                if (D2 >= 0) and (D2 <= AB):
+                    goodD += 1
+                    D = D2
+
+                if (goodD == 0):
+                    if diag: print ('Found no suitable solutions for D: D1 =',D1,' D2 =',D2,'. Ignoring this event.')
+                elif (goodD == 2):
+                    if diag: print ('Found two suitable solutions for D: D1 =',D1,' D2 =',D2,'. Ignoring this event.')
+                else:
+                    if diag: print ('Found a suitable solution for D:',D)
+                    SX = SXa*D + SXb
+                    SY = ((1 - SXa**2)*D**2 - 2*SXa*SXb*D - SXb**2)**0.5
+                    print('Sound location : (',SX,',',SY,')')
+                    
+                    
+                    
                 
