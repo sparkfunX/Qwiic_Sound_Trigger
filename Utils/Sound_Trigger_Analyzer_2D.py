@@ -43,6 +43,7 @@
 
 import sys
 import os
+#from quarticsolver import QuarticMinimumCPU as quartic # pip install quarticsolver
 
 diag = True # Print diagnostics
 
@@ -263,10 +264,13 @@ maxTimeBC = BC / speed_of_sound # Calculate what the maximum time difference can
 # 2: BC**2 = (AB - CX)**2 + CY**2
 # Rearrange 2: CY**2 = BC**2 - (AB - CX)**2
 # Substitute into 1: AC**2 = CX**2 + BC**2 - (AB - CX)**2
-# Multiply the square: AC**2 = CX**2 + BC**2 - AB**2 + 2.CX - CX**2
-# CX = (AC**2 - BC**2 
+# Multiply the square: AC**2 = CX**2 + BC**2 - AB**2 + 2.AB.CX - CX**2
+# CX = (AC**2 - BC**2 + AB**2) / 2.AB
 
 CX = (AC**2 - BC**2 + AB**2) / (2 * AB) # Calculate the X coordinate of C
+
+# Substitute into 1: CY = (AC**2 -CX**2)**0.5
+
 CY = (AC**2 - CX**2)**0.5 # Calculate the Y coordinate of C
 if diag: print('CX =',CX,' CY =',CY)
 
@@ -294,10 +298,53 @@ for timeA in timesA: # Step through each time in file A
                 DdiffC = TdiffC * speed_of_sound # Distance difference between C and A
                 if diag: print('DdiffB =',DdiffB,' DdiffC =',DdiffC)
 
+                # 3: D**2 = SX**2 + SY**2
+                # 4: (D + DdiffB)**2 = (AB - SX)**2 + SY**2
+                # 5: (D + DdiffC)**2 = (CX - SX)**2 + (CY - SY)**2
+                # Rearrange 4: SY**2 = (D + DdiffB)**2 - (AB - SX)**2
+                # Substitute into 1: D**2 = SX**2 + (D + DdiffB)**2 - (AB - SX)**2
+                # Multiply the squares: D**2 = SX**2 + D**2 + 2.DdiffB.D + DdiffB**2 - AB**2 + 2.AB.SX - SX**2
+                # 0 = 2.DdiffB.D + DdiffB**2 - AB**2 + 2.AB.SX
+                # 6: SX = (AB**2 - 2.DdiffB.D - DdiffB**2) / 2.AB
+
                 SXb = (AB**2 - DdiffB**2) / (2 * AB) # Calculate the b part of x = a.D + b
                 SXa = (0 - (2 * DdiffB)) / (2 * AB) # Calculate the a part of x = a.D + b
                 if diag:
                     sign = '+'
                     if (SXb < 0):
                         sign = ''
-                    print('x =',SXa,'D',sign,SXb)
+                    print('x =',SXa,'D',sign,SXb) # SX = SXa.D + SXb
+
+                # Substitute into 3: D**2 = (SXa.D + SXb)**2 + SY**2
+                # Rearrange: SY**2 = D**2 - (SXa.D + SXb)**2
+                # Multiply the square: SY**2 = D**2 - SXa**2.D**2 - 2.SXa.SXb.D - SXb**2
+                # Simplify: SY**2 = (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
+                # 7: SY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # Substitute 6 and 7 into 5:
+                # (D + DdiffC)**2 = (CX - (SXa.D + SXb))**2 + (CY - (((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5))**2
+                # Multiply the squares:
+                # D**2 + 2.DdiffC.D + DdiffC**2 = CX**2 - 2.CX.SXa.D - 2.CX.SXb + SXa**2.D + 2.SXa.SXb.D + SXb**2 + CY**2 - 2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5 + (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
+                # Simplify and leave the root on the right:
+                # (1 - (1 - SXa**2)).D**2 + (2.DdiffC + 2.CX.SXa - SXa**2).D + DdiffC**2 - CX**2 + 2.CX.SXb - SXb**2 - CY**2 + SXb**2 = -2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # (SXa**2.D**2 + (2.DdiffC + 2.CX.SXa - SXa**2).D + DdiffC**2 - CX**2 + 2.CX.SXb - CY**2) / -2.CY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                
+                da = SXa**2 / -2*CY
+                db = (2*DdiffC + 2*CX*SXa - SXa**2) / -2*CY
+                dc = (DdiffC**2 - CX**2 + 2*CX*SXb - CY**2) / -2*CY
+                if diag: print('da',da,' db',db,' dc',dc)
+
+                # da.D**2 + db.D + dc = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # Square both sides:
+                # da**2.D**4 + (2.da.db).D**3 + (2.da.dc + db**2).D**2 + (2.db.dc).D + dc**2 = (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
+                # Simplify:
+                # da**2.D**4 + (2.da.db).D**3 + (2.da.dc + db**2 - 1 + SXa**2).D**2 + (2.db.dc + 2.SXa.SXb).D + dc**2 + SXb**2 = 0
+
+                qa = da**2
+                qb = 2*da*db
+                qc = 2*da*dc + db**2 - 1 + SXa**2
+                qd = 2*db*dc + 2*SXa*SXb
+                qe = dc**2 + SXb**2
+                if diag: print('qa',qa,' qb',qb,' qc',qc,' qd',qd,' qe',qe)
+
+                # Now we need to put these into a quartic equation solver:
+                
