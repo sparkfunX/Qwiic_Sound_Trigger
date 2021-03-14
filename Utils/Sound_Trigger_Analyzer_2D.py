@@ -1,16 +1,19 @@
-# Sound Trigger Analyzer 1D
+# Sound Trigger Analyzer 2D
 
 # Written by: Paul Clark
-# Last update: March 11th, 2021
+# Last update: March 14th, 2021
 
-# Reads two UBX files logged by the Qwiic Sound Trigger Example2,
+# Reads three UBX files logged by the Qwiic Sound Trigger Example2,
 # extracts the TIM_TM2 of the sound events and calculates the location
 #
-# python Sound_Trigger_Analyzer_1D.py TIM_TM2_1.ubx TIM_TM2_2.ubx 10.0 20.0
+# python Sound_Trigger_Analyzer_2D.py TIM_TM2_A.ubx TIM_TM2_B.ubx TIM_TM2_C.ubx 8.0 6.0 10.0 20.0
 #
-# Replace TIM_TM2_1.ubx with the name of the file from the first system as necessary
-# Replace TIM_TM2_2.ubx with the name of the file from the second system as necessary
-# Replace the 10.0 with the distance between your two sound triggers in metres
+# Replace TIM_TM2_A.ubx with the name of the file from the first system as necessary
+# Replace TIM_TM2_B.ubx with the name of the file from the second system as necessary
+# Replace TIM_TM2_C.ubx with the name of the file from the third system as necessary
+# Replace the 8.0 with the distance between A and B in metres
+# Replace the 6.0 with the distance between A and C in metres
+# Replace the 10.0 with the distance between B and C in metres
 # The 20.0 is optional. It is the temperature in Celcius (Centigrade). Change this to your actual temperature for added accuracy
 
 
@@ -41,6 +44,8 @@
 import sys
 import os
 
+diag = True # Print diagnostics
+
 # Add byte to checksums sum1 and sum2
 def csum(byte, sum1, sum2):
     sum1 = sum1 + byte
@@ -49,26 +54,32 @@ def csum(byte, sum1, sum2):
     sum2 = sum2 & 0xFF
     return sum1,sum2
 
-print('Sound Trigger Analyzer 1D')
+print('Sound Trigger Analyzer 2D')
 print()
 
-if len(sys.argv) < 4:
+if len(sys.argv) < 7:
     print('ERROR: insufficient arguments!')
     print('')
-    print('python Sound_Trigger_Analyzer_1D.py TIM_TM2_1.ubx TIM_TM2_2.ubx 10.0 20.0')
+    print('python Sound_Trigger_Analyzer_2D.py TIM_TM2_A.ubx TIM_TM2_B.ubx TIM_TM2_C.ubx 8.0 6.0 10.0 20.0')
     print('')
-    print('TIM_TM2_1.ubx is the name of the file from the first system')
-    print('TIM_TM2_2.ubx is the name of the file from the second system')
-    print('Replace the 10.0 with the distance between your two sound triggers in metres')
+    print('TIM_TM2_A.ubx is the name of the file from the first system (A)')
+    print('TIM_TM2_B.ubx is the name of the file from the second system (B)')
+    print('TIM_TM2_C.ubx is the name of the file from the third system (C)')
+    print('Replace the 8.0 with the distance between A and B in metres')
+    print('Replace the 6.0 with the distance between A and C in metres')
+    print('Replace the 10.0 with the distance between B and C in metres')
     print('The 20.0 is optional. It is the temperature in Celcius (Centigrade)')
     raise Exception('Insufficient arguments!')
 
-filename1 = sys.argv[1]
-filename2 = sys.argv[2]
-distance = float(sys.argv[3])
+filenameA = sys.argv[1]
+filenameB = sys.argv[2]
+filenameC = sys.argv[3]
+AB = float(sys.argv[4])
+AC = float(sys.argv[5])
+BC = float(sys.argv[6])
 temperature = 20.0
-if len(sys.argv) >= 5:
-    temperature = float(sys.argv[4])
+if len(sys.argv) >= 8:
+    temperature = float(sys.argv[7])
 
 def processUBXfile(filename):
 
@@ -216,6 +227,8 @@ def processUBXfile(filename):
             ubx_state = looking_for_B5 # All bytes received so go back to looking for a new Sync Char 1 unless there is a checksum error
             if ((ubx_expected_checksum_A != ubx_checksum_A) or (ubx_expected_checksum_B != ubx_checksum_B)):
                 print("Panic!! UBX checksum error!")
+                if diag:
+                    print('ubx_expected_checksum_A',ubx_expected_checksum_A,'ubx_expected_checksum_B',ubx_expected_checksum_B)
                 ubx_state = sync_lost
             else:
                 if (newRisingEdge == True):
@@ -229,31 +242,62 @@ def processUBXfile(filename):
     fi.close() # Close the file
     return (times, risingEdgeCounts)
 
-times1, counts1 = processUBXfile(filename1)
-times2, counts2 = processUBXfile(filename2)
+timesA, countsA = processUBXfile(filenameA)
+timesB, countsB = processUBXfile(filenameB)
+timesC, countsC = processUBXfile(filenameC)
 
-print('Found',len(times1),'rising edge times in file 1')
-print('Found',len(times2),'rising edge times in file 2')
+print('Found',len(timesA),'rising edge times in file A')
+print('Found',len(timesB),'rising edge times in file B')
+print('Found',len(timesC),'rising edge times in file C')
 print()
 
 speed_of_sound = 331.3 + (0.606 * temperature) # Calculate the speed of sound
 
-#speed_of_sound = 1.0 # Handy for testing with fake TIM_TM2 data
+speed_of_sound = 1.0 # Handy for testing with fake TIM_TM2 data
 
-max_time_difference = distance / speed_of_sound # Calculate what the maximum time difference can be
+maxTimeAB = AB / speed_of_sound # Calculate what the maximum time difference can be between A and B
+maxTimeAC = AC / speed_of_sound # Calculate what the maximum time difference can be between A and C
+maxTimeBC = BC / speed_of_sound # Calculate what the maximum time difference can be between B and C
 
-for time1 in times1: # Step through each time in the first file
-    for time2 in times2: # Compare to each time from the second file
-        time1 *= 1e-9 # convert nanoseconds to seconds
-        time2 *= 1e-9 # convert nanoseconds to seconds
-        if abs(time1 - time2) <= max_time_difference: # Is the difference less than the maximum?
-            distance1 = abs(time1 - time2) * speed_of_sound # Convert the time difference into distance
-            distance1 = (distance - distance1) / 2.0  # Calculate the distance from the earliest sensor
-            if (time2 <= time1): # Check if the location was closer to sensor 2
-                distance1 = distance - distance1 # Flip the distance
-            distance1 = '%.3f' % distance1 # Convert to str with 3 decimal places
-            print('Sound location was',distance1,'m from sensor 1')
+# 1: AC**2 = CX**2 + CY**2
+# 2: BC**2 = (AB - CX)**2 + CY**2
+# Rearrange 2: CY**2 = BC**2 - (AB - CX)**2
+# Substitute into 1: AC**2 = CX**2 + BC**2 - (AB - CX)**2
+# Multiply the square: AC**2 = CX**2 + BC**2 - AB**2 + 2.CX - CX**2
+# CX = (AC**2 - BC**2 
 
+CX = (AC**2 - BC**2 + AB**2) / (2 * AB) # Calculate the X coordinate of C
+CY = (AC**2 - CX**2)**0.5 # Calculate the Y coordinate of C
+if diag: print('CX =',CX,' CY =',CY)
 
+# Check that the X coordinate of C lies between A and B
+if (CX < 0) or (CX > AB):
+    print('Please rename your points. The X coordinate of C must lie between A and B')
+    raise Exception('Invalid point order!')
 
+for timeA in timesA: # Step through each time in file A
+    for timeB in timesB: # Compare to each time in file B
+        for timeC in timesC: # Compare to each time in file C
+            timeA *= 1e-9 # convert nanoseconds to seconds
+            timeB *= 1e-9 # convert nanoseconds to seconds
+            timeC *= 1e-9 # convert nanoseconds to seconds
+            if diag: print ('timeA:',timeA,' timeB:',timeB,' timeC:',timeC)
+            if (abs(timeA - timeB) <= maxTimeAB) \
+               and (abs(timeA - timeC) <= maxTimeAC) \
+               and (abs(timeB - timeC) <= maxTimeBC): # Is the difference less than the maximum
 
+                TdiffB = timeB - timeA # Can be + or -
+                TdiffC = timeC - timeA # Can be + or -
+                if diag: print('TdiffB =',TdiffB,' TdiffC =',TdiffC)
+
+                DdiffB = TdiffB * speed_of_sound # Distance difference between B and A
+                DdiffC = TdiffC * speed_of_sound # Distance difference between C and A
+                if diag: print('DdiffB =',DdiffB,' DdiffC =',DdiffC)
+
+                SXb = (AB**2 - DdiffB**2) / (2 * AB) # Calculate the b part of x = a.D + b
+                SXa = (0 - (2 * DdiffB)) / (2 * AB) # Calculate the a part of x = a.D + b
+                if diag:
+                    sign = '+'
+                    if (SXb < 0):
+                        sign = ''
+                    print('x =',SXa,'D',sign,SXb)
