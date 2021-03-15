@@ -254,8 +254,6 @@ print()
 
 speed_of_sound = 331.3 + (0.606 * temperature) # Calculate the speed of sound
 
-speed_of_sound = 1.0 # Handy for testing with fake TIM_TM2 data
-
 maxTimeAB = AB / speed_of_sound # Calculate what the maximum time difference can be between A and B
 maxTimeAC = AC / speed_of_sound # Calculate what the maximum time difference can be between A and C
 maxTimeBC = BC / speed_of_sound # Calculate what the maximum time difference can be between B and C
@@ -329,37 +327,36 @@ for timeA in timesA: # Step through each time in file A
                 # Substitute 6 and 7 into 5:
                 # (D + DdiffC)**2 = (CX - (SXa.D + SXb))**2 + (CY - (((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5))**2
                 # Multiply the squares:
-                # D**2 + 2.DdiffC.D + DdiffC**2 = CX**2 - 2.CX.SXa.D - 2.CX.SXb - SXa**2.D**2 - 2.SXa.SXb.D - SXb**2 + CY**2 - 2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5 + (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
+                # D**2 + 2.DdiffC.D + DdiffC**2 = CX**2 - 2.CX.SXa.D - 2.CX.SXb + SXa**2.D**2 + 2.SXa.SXb.D + SXb**2 + CY**2 - 2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5 + (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
                 # Simplify and leave the root on the right:
-                # (1 + SXa**2 - (1 - SXa**2)).D**2 + (2.DdiffC + 2.CX.SXa + 4.SXa.SXb).D + DdiffC**2 - CX**2 + 2.CX.SXb + SXb**2 - CY**2 + SXb**2 = -2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
-                # 2.SXa**2.D**2 + ((2.DdiffC + 2.CX.SXa + 4.SXa.SXb).D + DdiffC**2 - CX**2 + 2.CX.SXb + 2.SXb**2 - CY**2) / -2.CY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # (1 - SXa**2 - (1 - SXa**2)).D**2 + (2.DdiffC + 2.CX.SXa - 2.SXa.SXb + 2.SXa.SXb).D + DdiffC**2 - CX**2 + 2.CX.SXb - SXb**2 - CY**2 + SXb**2 = -2.CY.((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # (2.DdiffC + 2.CX.SXa).D + DdiffC**2 - CX**2 + 2.CX.SXb - CY**2) / -2.CY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
                 
-                da = 2 * (SXa**2)
-                db = (2*DdiffC + 2*CX*SXa + 4.SXa.SXb) / (-2*CY)
-                dc = (DdiffC**2 - CX**2 + 2*CX*SXb + SXb**2- CY**2) / (-2*CY)
-                if diag: print('da',da,' db',db,'dc',dc)
+                da = (2*DdiffC + 2*CX*SXa) / (-2 * CY)
+                db = (DdiffC**2 - CX**2 + 2*CX*SXb - CY**2) / (-2 * CY)
+                if diag: print('da',da,' db',db)
 
-                # da.D**2 + db.D + dc = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
+                # da.D + db = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
                 # Square both sides:
                 # da**2.D**2 + 2.da.db.D + db**2 = (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
                 # Simplify:
                 # (da**2 - (1 - SXa**2)).D**2 + (2.da.db + 2.SXa.SXb).D + db**2 + SXb**2 = 0
 
-                qa = da**2 -1 + SXa**2
+                qa = da**2 - 1 + SXa**2
                 qb = 2*da*db + 2*SXa*SXb
                 qc = db**2 + SXb**2
                 if diag: print('qa',qa,' qb',qb,' qc',qc)
 
                 # Solve the quadratic equation:
 
-                D1 = (-qb + (qb**2 - 4*qa*qc)**0.5) / 2*qa
-                D2 = (-qb - (qb**2 - 4*qa*qc)**0.5) / 2*qa
+                D1 = (-qb + ((qb**2 - 4*qa*qc)**0.5)) / (2 * qa)
+                D2 = (-qb - ((qb**2 - 4*qa*qc)**0.5)) / (2 * qa)
 
                 goodD = 0
-                if (D1 >= 0) and (D1 <= AB):
+                if (D1 >= 0) and (D1 <= max([AB, AC, BC])):
                     goodD += 1
                     D = D1
-                if (D2 >= 0) and (D2 <= AB):
+                if (D2 >= 0) and (D2 <= max([AB, AC, BC])):
                     goodD += 1
                     D = D2
 

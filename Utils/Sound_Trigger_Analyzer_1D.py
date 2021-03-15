@@ -238,8 +238,6 @@ print()
 
 speed_of_sound = 331.3 + (0.606 * temperature) # Calculate the speed of sound
 
-#speed_of_sound = 1.0 # Handy for testing with fake TIM_TM2 data
-
 max_time_difference = distance / speed_of_sound # Calculate what the maximum time difference can be
 
 for time1 in times1: # Step through each time in the first file
