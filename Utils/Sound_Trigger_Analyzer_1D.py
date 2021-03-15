@@ -18,7 +18,7 @@
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2020 SparkFun Electronics
+# Copyright (c) 2021 SparkFun Electronics
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -40,6 +40,8 @@
 
 import sys
 import os
+
+diag = False # Print diagnostics if required
 
 # Add byte to checksums sum1 and sum2
 def csum(byte, sum1, sum2):
@@ -216,6 +218,8 @@ def processUBXfile(filename):
             ubx_state = looking_for_B5 # All bytes received so go back to looking for a new Sync Char 1 unless there is a checksum error
             if ((ubx_expected_checksum_A != ubx_checksum_A) or (ubx_expected_checksum_B != ubx_checksum_B)):
                 print("Panic!! UBX checksum error!")
+                if diag:
+                    print('ubx_expected_checksum_A',hex(ubx_expected_checksum_A),'ubx_expected_checksum_B',hex(ubx_expected_checksum_B))
                 ubx_state = sync_lost
             else:
                 if (newRisingEdge == True):

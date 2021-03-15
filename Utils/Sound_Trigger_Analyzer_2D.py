@@ -16,12 +16,13 @@
 # Replace the 10.0 with the distance between B and C in metres
 # The 20.0 is optional. It is the temperature in Celcius (Centigrade). Change this to your actual temperature for added accuracy
 
+# Note: this code currently fails when the X or Y coordinates of the source are negative.
 
 # SparkFun code, firmware, and software is released under the MIT License (http://opensource.org/licenses/MIT)
 #
 # The MIT License (MIT)
 #
-# Copyright (c) 2020 SparkFun Electronics
+# Copyright (c) 2021 SparkFun Electronics
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -43,9 +44,8 @@
 
 import sys
 import os
-#from quarticsolver import QuarticMinimumCPU as quartic # pip install quarticsolver
 
-diag = True # Print diagnostics
+diag = False # Print diagnostics if required
 
 # Add byte to checksums sum1 and sum2
 def csum(byte, sum1, sum2):
@@ -229,7 +229,7 @@ def processUBXfile(filename):
             if ((ubx_expected_checksum_A != ubx_checksum_A) or (ubx_expected_checksum_B != ubx_checksum_B)):
                 print("Panic!! UBX checksum error!")
                 if diag:
-                    print('ubx_expected_checksum_A',ubx_expected_checksum_A,'ubx_expected_checksum_B',ubx_expected_checksum_B)
+                    print('ubx_expected_checksum_A',hex(ubx_expected_checksum_A),'ubx_expected_checksum_B',hex(ubx_expected_checksum_B))
                 ubx_state = sync_lost
             else:
                 if (newRisingEdge == True):
@@ -368,7 +368,7 @@ for timeA in timesA: # Step through each time in file A
                     if diag: print ('Found a suitable solution for D:',D)
                     SX = SXa*D + SXb
                     SY = ((1 - SXa**2)*D**2 - 2*SXa*SXb*D - SXb**2)**0.5
-                    print('Sound location : (',SX,',',SY,')')
+                    print('Sound location : (%.4f,%.4F)'%(SX,SY))
                     
                     
                     
