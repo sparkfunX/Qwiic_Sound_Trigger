@@ -17,6 +17,6 @@
 - Distance from sensor B to sensor C is 10.0m
 
 - Test 4: Source located at (5.000,2.887) - i.e. center of the triangle
-- Test 5: Source located at (0.000,5.7735) - i.e. directly North of A on the circumference of the circle
-- Test 6: Source located at (-0.7735,2.8868) - i.e. West of A on the circumference of the circle - FAILS
-- Test 7: Source located at (5.000,-2.8868) - i.e. due South of C on the circumference of the circle - FAILS
+- Test 5: Source located at (0.000,5.7735) - i.e. directly North of A on the circumference of the circle - outside of the triangle ABC
+- Test 6: Source located at (-0.7735,2.8868) - i.e. West of A on the circumference of the circle - **FAILS**
+- Test 7: Source located at (5.000,-2.8868) - i.e. due South of C on the circumference of the circle - **FAILS**
