@@ -321,11 +321,6 @@ for timeA in timesA: # Step through each time in file A
                 # Simplify: SY**2 = (1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2
                 # 7: SY = ((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5
                 
-                ya = (1 - SXa**2)
-                yb = 0 - 2*SXa*SXb
-                yc = 0 - SXb**2
-                if diag: print('ya',ya,'yb',yb,'yc',yc)
-                
                 # Substitute 6 and 7 into 5:
                 # (D + DdiffC)**2 = (CX - (SXa.D + SXb))**2 + (CY - (((1 - SXa**2).D**2 - 2.SXa.SXb.D - SXb**2)**0.5))**2
                 # Multiply the squares:
@@ -369,7 +364,7 @@ for timeA in timesA: # Step through each time in file A
                 else:
                     if diag: print ('Found a suitable solution for D:',D)
                     SX = SXa*D + SXb
-                    SY = ((1 - SXa**2)*D**2 - 2*SXa*SXb*D - SXb**2)**0.5
+                    SY = (D**2 - SX**2)**0.5
                     print('Sound location : (%.4f,%.4F)'%(SX,SY))
                     
                     
