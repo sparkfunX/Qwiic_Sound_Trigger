@@ -260,9 +260,11 @@ maxTimeBC = BC / speed_of_sound # Calculate what the maximum time difference can
 
 # 1: AC**2 = CX**2 + CY**2
 # 2: BC**2 = (AB - CX)**2 + CY**2
+# Rearrange 1: CY**2 = AC**2 - CX**2
 # Rearrange 2: CY**2 = BC**2 - (AB - CX)**2
-# Substitute into 1: AC**2 = CX**2 + BC**2 - (AB - CX)**2
-# Multiply the square: AC**2 = CX**2 + BC**2 - AB**2 + 2.AB.CX - CX**2
+# AC**2 - CX**2 = BC**2 - (AB - CX)**2
+# Multiply the square: AC**2 - CX**2 = BC**2 - AB**2 + 2.AB.CX - CX**2
+# Rearrange: 2.AB.CX = AC**2 - BC**2 + AB**2
 # CX = (AC**2 - BC**2 + AB**2) / 2.AB
 
 CX = (AC**2 - BC**2 + AB**2) / (2 * AB) # Calculate the X coordinate of C
