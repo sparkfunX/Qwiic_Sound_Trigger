@@ -1120,97 +1120,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
-<library name="New_Parts">
-<packages>
-<package name="MSOP8">
-<description>&lt;b&gt;8M, 8-Lead, 0.118" Wide, Miniature Small Outline Package&lt;/b&gt;&lt;p&gt;
-MSOP&lt;br&gt;
-8M-Package doc1097.pdf</description>
-<wire x1="1.23" y1="1.48" x2="1.48" y2="1.23" width="0.2032" layer="21" curve="-90" cap="flat"/>
-<wire x1="1.48" y1="-1.23" x2="1.23" y2="-1.48" width="0.2032" layer="21" curve="-90"/>
-<wire x1="-1.49" y1="-1.23" x2="-1.24" y2="-1.48" width="0.2032" layer="21" curve="90"/>
-<wire x1="-1.24" y1="1.48" x2="-1.49" y2="1.23" width="0.2032" layer="21" curve="90" cap="flat"/>
-<wire x1="-1.49" y1="-1.24" x2="-1.49" y2="1.22" width="0.2032" layer="21"/>
-<wire x1="1.48" y1="1.22" x2="1.48" y2="-1.24" width="0.2032" layer="21"/>
-<wire x1="1.23" y1="1.48" x2="-1.23" y2="1.48" width="0.2032" layer="21"/>
-<wire x1="-1.24" y1="-1.48" x2="1.23" y2="-1.48" width="0.2032" layer="21"/>
-<smd name="1" x="-2.25" y="0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<smd name="2" x="-2.25" y="0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<smd name="3" x="-2.25" y="-0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<smd name="4" x="-2.25" y="-0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<smd name="5" x="2.25" y="-0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<smd name="6" x="2.25" y="-0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<smd name="7" x="2.25" y="0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<smd name="8" x="2.25" y="0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
-<circle x="-1.7574" y="1.6256" radius="0.091578125" width="0.2032" layer="21"/>
-<text x="-1.143" y="0.762" size="0.508" layer="25">&gt;Name</text>
-<text x="-1.27" y="-1.27" size="0.508" layer="27">&gt;Value</text>
-<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
-<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.1524" layer="51"/>
-<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.1524" layer="51"/>
-<wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
-<rectangle x1="-2.45" y1="0.8175" x2="-1.9" y2="1.1325" layer="51"/>
-<rectangle x1="-2.45" y1="0.1675" x2="-1.9" y2="0.4825" layer="51"/>
-<rectangle x1="-2.45" y1="-0.4825" x2="-1.9" y2="-0.1675" layer="51"/>
-<rectangle x1="-2.45" y1="-1.1325" x2="-1.9" y2="-0.8175" layer="51"/>
-<rectangle x1="1.9" y1="-1.1325" x2="2.45" y2="-0.8175" layer="51"/>
-<rectangle x1="1.9" y1="-0.4825" x2="2.45" y2="-0.1675" layer="51"/>
-<rectangle x1="1.9" y1="0.1675" x2="2.45" y2="0.4825" layer="51"/>
-<rectangle x1="1.9" y1="0.8175" x2="2.45" y2="1.1325" layer="51"/>
-</package>
-<package name="VM1010">
-<description>Vesper Technologies VM1010</description>
-<smd name="1" x="1.35" y="0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
-<hole x="-0.75" y="0" drill="0.75"/>
-<circle x="-0.75" y="0" radius="0.63" width="0.3" layer="1"/>
-<circle x="1.35" y="0.965" radius="0.1" width="0.55" layer="29"/>
-<circle x="1.35" y="0.965" radius="0.1" width="0.4" layer="31"/>
-<smd name="7" x="1.35" y="0" dx="0.6" dy="0.6" layer="1" roundness="100" stop="no" cream="no"/>
-<circle x="1.35" y="0" radius="0.1" width="0.5" layer="29"/>
-<circle x="1.35" y="0" radius="0.1" width="0.35" layer="31"/>
-<smd name="6" x="1.35" y="-0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
-<circle x="1.35" y="-0.965" radius="0.1" width="0.55" layer="29"/>
-<circle x="1.35" y="-0.965" radius="0.1" width="0.4" layer="31"/>
-<wire x1="-1.88" y1="-1.475" x2="1.88" y2="-1.475" width="0.2" layer="21"/>
-<wire x1="1.88" y1="-1.475" x2="1.88" y2="1.475" width="0.2" layer="21"/>
-<wire x1="1.88" y1="1.475" x2="-1.88" y2="1.475" width="0.2" layer="21"/>
-<wire x1="-1.88" y1="1.475" x2="-1.88" y2="-1.475" width="0.2" layer="21"/>
-<wire x1="-1.88" y1="-1.475" x2="1.88" y2="-1.475" width="0.15" layer="51"/>
-<wire x1="1.88" y1="1.475" x2="-1.88" y2="1.475" width="0.15" layer="51"/>
-<wire x1="-1.88" y1="1.475" x2="-1.88" y2="-1.475" width="0.15" layer="51"/>
-<wire x1="1.88" y1="-1.475" x2="1.88" y2="1.475" width="0.15" layer="51"/>
-<circle x="2.2" y="1.76" radius="0.1" width="0.2" layer="21"/>
-<smd name="2" x="0.25" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
-<circle x="0.25" y="1.015" radius="0.1" width="0.36" layer="29"/>
-<circle x="0.25" y="1.015" radius="0.1" width="0.21" layer="31"/>
-<circle x="-0.75" y="0" radius="0.415" width="0.83" layer="29"/>
-<smd name="8" x="-1.38" y="0" dx="0.25" dy="0.25" layer="1" stop="no" cream="no"/>
-<wire x1="-1.4" y1="0.175" x2="-0.925" y2="0.65" width="0.2" layer="31" curve="-59.863024"/>
-<wire x1="-0.1" y1="-0.175" x2="-0.575" y2="-0.65" width="0.2" layer="31" curve="-59.863024"/>
-<wire x1="-1.4" y1="-0.175" x2="-0.925" y2="-0.65" width="0.2" layer="31" curve="59.863024"/>
-<wire x1="-0.1" y1="0.175" x2="-0.575" y2="0.65" width="0.2" layer="31" curve="59.863024"/>
-<smd name="3" x="-1.39" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
-<circle x="-1.39" y="1.015" radius="0.1" width="0.36" layer="29"/>
-<circle x="-1.39" y="1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="4" x="-1.39" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
-<circle x="-1.39" y="-1.015" radius="0.1" width="0.36" layer="29"/>
-<circle x="-1.39" y="-1.015" radius="0.1" width="0.21" layer="31"/>
-<smd name="5" x="0.25" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
-<circle x="0.25" y="-1.015" radius="0.1" width="0.36" layer="29"/>
-<circle x="0.25" y="-1.015" radius="0.1" width="0.21" layer="31"/>
-<text x="-1.75" y="2" size="0.8128" layer="25">&gt;NAME</text>
-<text x="-1.75" y="-2.5" size="0.8128" layer="27">&gt;VALUE</text>
-<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="51"/>
-<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="51"/>
-<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="51"/>
-<circle x="1.35" y="0" radius="0.1" width="0.4" layer="51"/>
-<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="51"/>
-<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="51"/>
-<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="51"/>
-<circle x="-0.75" y="0" radius="0.63" width="0.3" layer="51"/>
-</package>
-</packages>
-</library>
 <library name="SparkFun-Hardware">
 <description>&lt;h3&gt;SparkFun Electronics' preferred foot prints&lt;/h3&gt;
 This library contains board components that are not electrical in nature, such as stand-offs, magnets, and Actobotics.
@@ -5529,6 +5438,127 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
+<library name="SparkFun-Sensors">
+<description>&lt;h3&gt;SparkFun Sensors&lt;/h3&gt;
+This library contains sensors- accelerometers, gyros, compasses, magnetometers, light sensors, imagers, temp sensors, etc.
+&lt;br&gt;
+&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application.
+&lt;br&gt;
+&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/
+&lt;br&gt;
+&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="VM1010">
+<description>Vesper Technologies VM1010</description>
+<smd name="1" x="1.35" y="0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
+<hole x="-0.75" y="0" drill="0.75"/>
+<circle x="-0.75" y="0" radius="0.63" width="0.3" layer="1"/>
+<circle x="1.35" y="0.965" radius="0.1" width="0.55" layer="29"/>
+<circle x="1.35" y="0.965" radius="0.1" width="0.4" layer="31"/>
+<smd name="7" x="1.35" y="0" dx="0.6" dy="0.6" layer="1" roundness="100" stop="no" cream="no"/>
+<circle x="1.35" y="0" radius="0.1" width="0.5" layer="29"/>
+<circle x="1.35" y="0" radius="0.1" width="0.35" layer="31"/>
+<smd name="6" x="1.35" y="-0.965" dx="0.65" dy="0.65" layer="1" roundness="100" stop="no" cream="no"/>
+<circle x="1.35" y="-0.965" radius="0.1" width="0.55" layer="29"/>
+<circle x="1.35" y="-0.965" radius="0.1" width="0.4" layer="31"/>
+<wire x1="-1.88" y1="-1.475" x2="1.88" y2="-1.475" width="0.2" layer="21"/>
+<wire x1="1.88" y1="-1.475" x2="1.88" y2="1.475" width="0.2" layer="21"/>
+<wire x1="1.88" y1="1.475" x2="-1.88" y2="1.475" width="0.2" layer="21"/>
+<wire x1="-1.88" y1="1.475" x2="-1.88" y2="-1.475" width="0.2" layer="21"/>
+<wire x1="-1.88" y1="-1.475" x2="1.88" y2="-1.475" width="0.15" layer="51"/>
+<wire x1="1.88" y1="1.475" x2="-1.88" y2="1.475" width="0.15" layer="51"/>
+<wire x1="-1.88" y1="1.475" x2="-1.88" y2="-1.475" width="0.15" layer="51"/>
+<wire x1="1.88" y1="-1.475" x2="1.88" y2="1.475" width="0.15" layer="51"/>
+<circle x="2.2" y="1.76" radius="0.1" width="0.2" layer="21"/>
+<smd name="2" x="0.25" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
+<circle x="0.25" y="1.015" radius="0.1" width="0.36" layer="29"/>
+<circle x="0.25" y="1.015" radius="0.1" width="0.21" layer="31"/>
+<circle x="-0.75" y="0" radius="0.415" width="0.83" layer="29"/>
+<smd name="8" x="-1.38" y="0" dx="0.25" dy="0.25" layer="1" stop="no" cream="no"/>
+<wire x1="-1.4" y1="0.175" x2="-0.925" y2="0.65" width="0.2" layer="31" curve="-59.863024"/>
+<wire x1="-0.1" y1="-0.175" x2="-0.575" y2="-0.65" width="0.2" layer="31" curve="-59.863024"/>
+<wire x1="-1.4" y1="-0.175" x2="-0.925" y2="-0.65" width="0.2" layer="31" curve="59.863024"/>
+<wire x1="-0.1" y1="0.175" x2="-0.575" y2="0.65" width="0.2" layer="31" curve="59.863024"/>
+<smd name="3" x="-1.39" y="1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
+<circle x="-1.39" y="1.015" radius="0.1" width="0.36" layer="29"/>
+<circle x="-1.39" y="1.015" radius="0.1" width="0.21" layer="31"/>
+<smd name="4" x="-1.39" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
+<circle x="-1.39" y="-1.015" radius="0.1" width="0.36" layer="29"/>
+<circle x="-1.39" y="-1.015" radius="0.1" width="0.21" layer="31"/>
+<smd name="5" x="0.25" y="-1.015" dx="0.46" dy="0.46" layer="1" roundness="100" stop="no" cream="no"/>
+<circle x="0.25" y="-1.015" radius="0.1" width="0.36" layer="29"/>
+<circle x="0.25" y="-1.015" radius="0.1" width="0.21" layer="31"/>
+<text x="-1.75" y="2" size="0.8128" layer="25">&gt;NAME</text>
+<text x="-1.75" y="-2.5" size="0.8128" layer="27">&gt;VALUE</text>
+<circle x="-1.39" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="0.25" y="1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="1.35" y="0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="1.35" y="0" radius="0.1" width="0.4" layer="51"/>
+<circle x="1.35" y="-0.965" radius="0.1" width="0.45" layer="51"/>
+<circle x="0.25" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-1.39" y="-1.015" radius="0.1" width="0.26" layer="51"/>
+<circle x="-0.75" y="0" radius="0.63" width="0.3" layer="51"/>
+</package>
+</packages>
+</library>
+<library name="SparkFun-IC-Conversion">
+<description>&lt;h3&gt;SparkFun Conversion ICs&lt;/h3&gt;
+This library is for ICs that perform analog to digital conversion, as well as digital to analog.  This includes not only strict ADCs, but audio in and out converters, decoders, thermocouple measurement ics the like.  Anything that is a single part that works between the two domains goes here.
+&lt;br&gt;
+&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
+&lt;br&gt;
+&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;
+&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="MSOP8">
+<description>&lt;b&gt;8M, 8-Lead, 0.118" Wide, Miniature Small Outline Package&lt;/b&gt;&lt;p&gt;
+MSOP&lt;br&gt;
+8M-Package doc1097.pdf</description>
+<wire x1="1.23" y1="1.48" x2="1.48" y2="1.23" width="0.2032" layer="21" curve="-90" cap="flat"/>
+<wire x1="1.48" y1="-1.23" x2="1.23" y2="-1.48" width="0.2032" layer="21" curve="-90"/>
+<wire x1="-1.49" y1="-1.23" x2="-1.24" y2="-1.48" width="0.2032" layer="21" curve="90"/>
+<wire x1="-1.24" y1="1.48" x2="-1.49" y2="1.23" width="0.2032" layer="21" curve="90" cap="flat"/>
+<wire x1="-1.49" y1="-1.24" x2="-1.49" y2="1.22" width="0.2032" layer="21"/>
+<wire x1="1.48" y1="1.22" x2="1.48" y2="-1.24" width="0.2032" layer="21"/>
+<wire x1="1.23" y1="1.48" x2="-1.23" y2="1.48" width="0.2032" layer="21"/>
+<wire x1="-1.24" y1="-1.48" x2="1.23" y2="-1.48" width="0.2032" layer="21"/>
+<smd name="1" x="-2.25" y="0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<smd name="2" x="-2.25" y="0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<smd name="3" x="-2.25" y="-0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<smd name="4" x="-2.25" y="-0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<smd name="5" x="2.25" y="-0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<smd name="6" x="2.25" y="-0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<smd name="7" x="2.25" y="0.325" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<smd name="8" x="2.25" y="0.975" dx="0.4" dy="1.1" layer="1" rot="R270"/>
+<circle x="-1.7574" y="1.6256" radius="0.091578125" width="0.2032" layer="21"/>
+<text x="-1.143" y="0.762" size="0.508" layer="25">&gt;Name</text>
+<text x="-1.27" y="-1.27" size="0.508" layer="27">&gt;Value</text>
+<wire x1="-1.5" y1="1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="1.5" y2="-1.5" width="0.1524" layer="51"/>
+<wire x1="-1.5" y1="-1.5" x2="-1.5" y2="1.5" width="0.1524" layer="51"/>
+<wire x1="1.5" y1="-1.5" x2="1.5" y2="1.5" width="0.1524" layer="51"/>
+<rectangle x1="-2.45" y1="0.8175" x2="-1.9" y2="1.1325" layer="51"/>
+<rectangle x1="-2.45" y1="0.1675" x2="-1.9" y2="0.4825" layer="51"/>
+<rectangle x1="-2.45" y1="-0.4825" x2="-1.9" y2="-0.1675" layer="51"/>
+<rectangle x1="-2.45" y1="-1.1325" x2="-1.9" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-1.1325" x2="2.45" y2="-0.8175" layer="51"/>
+<rectangle x1="1.9" y1="-0.4825" x2="2.45" y2="-0.1675" layer="51"/>
+<rectangle x1="1.9" y1="0.1675" x2="2.45" y2="0.4825" layer="51"/>
+<rectangle x1="1.9" y1="0.8175" x2="2.45" y2="1.1325" layer="51"/>
+</package>
+</packages>
+</library>
 </libraries>
 <attributes>
 <attribute name="REVISION" value="A"/>
@@ -5765,7 +5795,7 @@ These are the free and generally easy to produce 2-layer PCB design rules. You c
 <attribute name="NAME" x="3.81" y="4.445" size="0.6096" layer="25" font="vector" ratio="20" rot="R180" align="bottom-center"/>
 <attribute name="PROD_ID" value="DIO-00819" x="3.81" y="3.175" size="1.778" layer="27" font="vector" ratio="15" rot="R180" display="off"/>
 </element>
-<element name="U2" library="New_Parts" package="MSOP8" value="PCA9536" x="12.7" y="11.938" smashed="yes">
+<element name="U2" library="SparkFun-IC-Conversion" package="MSOP8" value="PCA9536" x="12.7" y="11.938" smashed="yes">
 <attribute name="NAME" x="12.065" y="11.557" size="0.6096" layer="25" font="vector" ratio="20"/>
 <attribute name="PROD_ID" value="IC-15034" x="12.7" y="11.938" size="1.778" layer="27" display="off"/>
 </element>
@@ -5790,7 +5820,7 @@ These are the free and generally easy to produce 2-layer PCB design rules. You c
 <attribute name="VALUE" x="12.7" y="22.352" size="0.6096" layer="27" font="vector" ratio="20"/>
 </element>
 <element name="LOGO2" library="SparkFun-Aesthetics" package="ORDERING_INSTRUCTIONS" value="SPECIAL_INSTRUCTIONS-ORDERING" x="34.29" y="50.8" smashed="yes"/>
-<element name="U1" library="New_Parts" package="VM1010" value="VM1010" x="12.7" y="16.51" smashed="yes" rot="R270">
+<element name="U1" library="SparkFun-Sensors" package="VM1010" value="VM1010" x="12.7" y="16.51" smashed="yes" rot="R270">
 <attribute name="DIGIKEY_PART" value="2022-1001-1-ND" x="12.7" y="16.51" size="1.778" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 <attribute name="MANU_PART" value="VM1010AA" x="12.7" y="16.51" size="1.778" layer="27" font="vector" ratio="15" rot="R270" display="off"/>
 <attribute name="NAME" x="12.22" y="15.716" size="0.6096" layer="25" font="vector" ratio="20"/>
