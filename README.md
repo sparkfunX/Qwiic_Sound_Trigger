@@ -2,8 +2,8 @@
 
 A sound trigger which you can use on its own, or as part of your Qwiic system.
 
-![Qwiic Sound Trigger (SPX-17979)](./img/Top.PNG)
-![Qwiic Sound Trigger (SPX-17979)](./img/Bottom.PNG)
+![[Qwiic Sound Trigger (SPX-17979)](https://www.sparkfun.com/products/17979)](https://cdn.sparkfun.com//assets/parts/1/7/1/4/9/17979-Qwiic_Sound_Trigger-01.jpg)
+
 ![Qwiic Sound Trigger (SPX-17979)](./img/Dimensions.PNG)
 
 [Qwiic Sound Trigger (SPX-17979)](https://www.sparkfun.com/products/17979)
